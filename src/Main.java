@@ -1,11 +1,10 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import am.aua.equationSolver.CLI.ExponentailEquationConsole;
+import am.aua.equationSolver.CLI.ExponentialEquationConsole;
 import am.aua.equationSolver.CLI.LinearConsole;
 import am.aua.equationSolver.CLI.QuadraticConsole;
 import am.aua.equationSolver.CLI.SLEconsole;
-import am.aua.equationSolver.Equations.ExponentialEquation;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,25 +14,30 @@ public class Main {
         boolean success = false;
         while(!success) {
             try{
-                int input = sc.nextInt();
-                if (input == 1) {
-                    LinearConsole.Linear();
-                    success = true;
-                } else if (input == 2) {
-                    QuadraticConsole.Quadratic();
-                    success = true;
-                } else if (input == 3) {
-                    SLEconsole.SLE();
-                    success = true;
-                }else if (input == 4) {
-                        ExponentailEquationConsole.Exponential();
-                        success = true;
-                }
-            else {
+                String input = sc.nextLine();
+                input = input.replace("\\s+", "");
+                if (input.length() !=1){
                     System.out.println("Enter a valid number: 1, 2, 3 or 4");
+                } else {
+                    if (input.equals("1")) {
+                        LinearConsole.Linear();
+                        success = true;
+                    } else if (input.equals("2")) {
+                        QuadraticConsole.Quadratic();
+                        success = true;
+                    } else if (input.equals("3")) {
+                        SLEconsole.SLE();
+                        success = true;
+                    } else if (input.equals("4")) {
+                        ExponentialEquationConsole.Exponential();
+                        success = true;
+                    }else {
+                        System.out.println("Enter a valid number: 1, 2, 3 or 4");
+                    }
                 }
-            } catch(InputMismatchException e){
-                System.out.println("Enter a valid number: 1, 2, 3 or 4");
+
+            } catch(Exception e){
+                System.out.println(e.getMessage());
                 sc.nextLine();
             }
         }

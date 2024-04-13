@@ -1,6 +1,7 @@
 package am.aua.equationSolver.CLI;
 
 import am.aua.equationSolver.Equations.LinearEquation;
+import am.aua.equationSolver.Equations.WrongInputException;
 
 import java.util.Scanner;
 
@@ -42,7 +43,7 @@ public class LinearConsole {
                 double y = equation.solveForY(value);
                 System.out.printf("Given x = %.2f, then y = %.2f%n", value, y);
             }
-            catch(ArithmeticException e){
+            catch(WrongInputException e){
                 System.out.println("Cannot divide by zero.");
             }
 
@@ -51,7 +52,7 @@ public class LinearConsole {
                 double x = equation.solveForX(value);
                 System.out.printf("Given y = %.2f, then x = %.2f%n", value, x);
             }
-            catch(ArithmeticException e){
+            catch(WrongInputException e){
                 System.out.println("Cannot divide by zero.");
             }
 

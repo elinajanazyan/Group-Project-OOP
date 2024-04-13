@@ -19,7 +19,6 @@ public class SLE {
     public double[] solveSystem() {
         int n = equations.size(); // Number of equations
         double[][] matrix = new double[n][n + 1]; // Augmented matrix
-
         // Construct the augmented matrix from equations
         for (int i = 0; i < n; i++) {
             double[] coefficients = equations.get(i).getCoefficients();
@@ -27,8 +26,6 @@ public class SLE {
                 matrix[i][j] = coefficients[j];
             }
         }
-
-        // Forward elimination
         for (int i = 0; i < n; i++) {
             int max = i;
             for (int j = i + 1; j < n; j++) {
@@ -44,7 +41,8 @@ public class SLE {
 
             // Singular matrix check or no unique solution
             if (matrix[i][i] == 0) {
-                throw new ArithmeticException("No unique solution exists");
+                System.out.println("No unique solution exists");
+                System.exit(0);
             }
 
             // Eliminate below

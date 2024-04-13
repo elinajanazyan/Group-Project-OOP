@@ -5,21 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5d35e2c-094e-4fac-9b6a-85d9faa9b069" name="Changes" comment="Fist one">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/ExponentailEquationConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/SLEconsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/ExponentialEquation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/WrongInputException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/getCoefficients.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/aua/equationSolver/CLI/LinearConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/LinearConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/aua/equationSolver/CLI/QuadraticConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/QuadraticConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/aua/equationSolver/Equations/Equation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/Equation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/aua/equationSolver/Equations/LinearEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/LinearEquation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/aua/equationSolver/Equations/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/QuadraticEquation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/aua/equationSolver/Equations/SLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/SLE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/ExponentailEquationConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/ExponentialEquationConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/LinearConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/LinearConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/QuadraticConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/QuadraticConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/SLEconsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/SLEconsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/Equation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/Equation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/ExponentialEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/ExponentialEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/LinearEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/LinearEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/QuadraticEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/SLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/SLE.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +52,6 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/vahemaleryan/Desktop/MathEquation/src/Main.java&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -77,7 +72,8 @@
       <workItem from="1712926280930" duration="1073000" />
       <workItem from="1712927892888" duration="744000" />
       <workItem from="1712928884663" duration="2968000" />
-      <workItem from="1712934877424" duration="4536000" />
+      <workItem from="1712934877424" duration="12410000" />
+      <workItem from="1713013751050" duration="897000" />
     </task>
     <task id="LOCAL-00001" summary="Fist one">
       <option name="closed" value="true" />
@@ -87,7 +83,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712920313377</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fist one">
+      <option name="closed" value="true" />
+      <created>1712939520744</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712939520744</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,5 +100,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fist one" />
     <option name="LAST_COMMIT_MESSAGE" value="Fist one" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/am/aua/equationSolver/Equations/QuadraticEquation.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

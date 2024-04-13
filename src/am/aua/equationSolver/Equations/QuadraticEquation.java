@@ -2,7 +2,7 @@ package am.aua.equationSolver.Equations;
 
 public class QuadraticEquation extends Equation{
 
-    public QuadraticEquation(String equation) throws IllegalArgumentException {
+    public QuadraticEquation(String equation) throws WrongInputException {
         equation = equation.replaceAll("\\s", "");
 
         if (!equation.contains("=")) {
@@ -29,14 +29,12 @@ public class QuadraticEquation extends Equation{
         }
         c -= rightSide;
     }
-
     public void solve() {
         double discriminant = b * b - 4 * a * c;
 
         if (a == 0) {
             double root = -c / b;
-            System.out.println("One real root: " + root);
-
+            System.out.printf("%.2f", "One real root: ", root);
         } if (b == 0){
                 if (c < 0){
                     System.out.println("Two real and distinct roots: " +
@@ -46,16 +44,15 @@ public class QuadraticEquation extends Equation{
             if (discriminant > 0) {
                 double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
                 double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-                System.out.println("Two real and distinct roots: " + root1 + " and " + root2);
+                System.out.printf("%.2f", "Two real and distinct roots: ", root1, " and ", root2);
             } else if (discriminant == 0) {
                 double root = -b / (2 * a);
-                System.out.println("One real root: " + root);
+                System.out.printf("%.2f", "One real root: ", root);
             } else {
                 System.out.println("No real roots.");
             }
         }
     }
-
     @Override
     public double[] getCoefficients() {
         return new double[]{a, b, c};

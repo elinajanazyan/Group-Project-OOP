@@ -1,6 +1,6 @@
 package am.aua.equationSolver.Equations;
 public class LinearEquation extends Equation{
-    public LinearEquation(String equation) throws IllegalArgumentException {
+    public LinearEquation(String equation) throws WrongInputException {
         equation = equation.replaceAll("\\s+", "");
         if (equation.startsWith("x")) {
             equation = equation.replace("x", "1x");
@@ -15,33 +15,32 @@ public class LinearEquation extends Equation{
 
         String[] parts = equation.split("x\\+|y=|x");
         if (parts.length < 3) {
-            throw new IllegalArgumentException("Equation format is incorrect.");
+            throw new WrongInputException("Equation format is incorrect.");
         }
         a = Double.parseDouble(parts[0]);
         b = Double.parseDouble(parts[1]);
         c = Double.parseDouble(parts[2]);
 
         if (a == 0 && b == 0) {
-            throw new IllegalArgumentException("a and b cannot be zero.");
+            throw new WrongInputException("a and b cannot be zero.");
         }
     }
 
     public boolean isSolvable() {
-        // Equation is not solvable if a and b are zero and c is not zero
         return !(a == 0 && b == 0 && c != 0);
     }
 
 
-    public double solveForX(double y) {
+    public double solveForX(double y) throws WrongInputException {
         if (a == 0) {
-            throw new ArithmeticException("Cannot solve for x when the coefficient of x is zero.");
+            throw new WrongInputException("Cannot solve for x when the coefficient of x is zero.");
         }
         return (c - b * y) / a;
     }
 
-    public double solveForY(double x) {
+    public double solveForY(double x) throws WrongInputException {
         if (b == 0) {
-            throw new ArithmeticException("Cannot solve for y when the coefficient of y is zero.");
+            throw new WrongInputException("Cannot solve for y when the coefficient of y is zero.");
         }
         return (c - a * x) /  b;
     }
