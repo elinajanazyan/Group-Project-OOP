@@ -7,8 +7,8 @@ import java.awt.event.WindowEvent;
 import am.aua.equationSolver.Equations.*;
 
 public class EquationUI extends JFrame {
-    private static final Color BACKGROUND = new Color(77, 184, 184);
-    private static final Color BUTTON_COLOR = new Color(242, 242, 242);
+     static final Color BACKGROUND = new Color(77, 184, 184);
+     static final Color BUTTON_COLOR = new Color(242, 242, 242);
 
     public EquationUI() {
         setSize(500, 300);

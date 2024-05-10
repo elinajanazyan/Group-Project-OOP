@@ -42,6 +42,7 @@ public class EquationInputUI extends JFrame {
         buttonPanel.add(submitButton);
 
         JPanel panel = new JPanel(new BorderLayout());
+        panel.setBackground(EquationUI.BACKGROUND);
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         panel.add(label, BorderLayout.NORTH);
         panel.add(scrollPane, BorderLayout.CENTER);
