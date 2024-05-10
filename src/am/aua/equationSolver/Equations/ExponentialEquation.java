@@ -40,6 +40,11 @@ public class ExponentialEquation extends Equation{
         return new double[]{a, b, c};
     }
 
+    @Override
+    public boolean isSolvable() {
+        return b > 0 && b != 1 && a != 0 && (c/a > 0);
+    }
+
     public static double logBase(double value, double base) throws WrongInputException{
         if (base <= 0 || base == 1 || value <= 0) {
             throw new WrongInputException("Base must be greater than 0 and not equal to 1, and value must be greater than 0.");

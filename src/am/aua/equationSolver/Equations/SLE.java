@@ -3,7 +3,7 @@ package am.aua.equationSolver.Equations;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SLE {
+public class SLE extends Equation {
     private List<LinearEquation> equations;
 
     public SLE() {
@@ -14,54 +14,128 @@ public class SLE {
         equations.add(eq);
     }
 
-
-    // Solve the system using Gaussian elimination
-    public double[] solveSystem() {
-        int n = equations.size(); // Number of equations
-        double[][] matrix = new double[n][n + 1]; // Augmented matrix
-        // Construct the augmented matrix from equations
-        for (int i = 0; i < n; i++) {
-            double[] coefficients = equations.get(i).getCoefficients();
-            for (int j = 0; j < n + 1; j++) { // n + 1 because it includes the constant term
-                matrix[i][j] = coefficients[j];
-            }
-        }
-        for (int i = 0; i < n; i++) {
-            int max = i;
-            for (int j = i + 1; j < n; j++) {
-                if (Math.abs(matrix[j][i]) > Math.abs(matrix[max][i])) {
-                    max = j;
-                }
-            }
-
-            // Swap rows if necessary
-            double[] temp = matrix[i];
-            matrix[i] = matrix[max];
-            matrix[max] = temp;
-
-            // Singular matrix check or no unique solution
-            if (matrix[i][i] == 0) {
-                System.out.println("No unique solution exists");
-                System.exit(0);
-            }
-
-            // Eliminate below
-            for (int j = i + 1; j < n; j++) {
-                double factor = matrix[j][i] / matrix[i][i];
-                for (int k = i; k <= n; k++) {
-                    matrix[j][k] -= factor * matrix[i][k];
-                }
-            }
+    public double[] getCoefficients() {
+        if (equations.isEmpty()) {
+            return new double[0];
         }
 
-        // Back substitution
-        double[] solution = new double[n];
-        for (int i = n - 1; i >= 0; i--) {
-            double sum = 0.0;
-            for (int j = i + 1; j < n; j++) {
-                sum += matrix[i][j] * solution[j];
+        int numEquations = equations.size();
+        int numCoefficientsPerEquation = equations.get(0).getCoefficients().length;
+        double[] flatCoefficients = new double[numEquations * numCoefficientsPerEquation];
+
+        for (int i = 0; i < numEquations; i++) {
+            System.arraycopy(equations.get(i).getCoefficients(), 0, flatCoefficients, i * numCoefficientsPerEquation, numCoefficientsPerEquation);
+        }
+
+        return flatCoefficients;
+    }
+
+    public boolean isSolvable() {
+        double[][] matrix = buildAugmentedMatrix();
+        return hasConsistentEquations(matrix);
+    }
+
+    private double[][] buildAugmentedMatrix() {
+        int numEquations = equations.size();
+        int numVariables = equations.get(0).getCoefficients().length - 1;
+        double[][] matrix = new double[numEquations][numVariables + 1];
+
+        for (int i = 0; i < numEquations; i++) {
+            double[] coeffs = equations.get(i).getCoefficients();
+            System.arraycopy(coeffs, 0, matrix[i], 0, coeffs.length);
+        }
+        return matrix;
+    }
+
+    private boolean hasConsistentEquations(double[][] matrix) {
+        int rowCount = matrix.length;
+        int colCount = matrix[0].length;
+
+        for (int row = 0; row < rowCount; row++) {
+            int pivot = findPivot(matrix, row);
+            if (pivot == -1) {
+                if (matrix[row][colCount - 1] != 0) {
+                    return false;
+                }
+                continue;
             }
-            solution[i] = (matrix[i][n] - sum) / matrix[i][i];
+
+            normalizeRow(matrix, row, pivot);
+            eliminateColumn(matrix, row, pivot);
+        }
+
+        return true;
+    }
+
+    private int findPivot(double[][] matrix, int row) {
+        int colCount = matrix[0].length - 1;
+        for (int col = 0; col < colCount; col++) {
+            if (Math.abs(matrix[row][col]) > 0) {
+                return col;
+            }
+        }
+        return -1;
+    }
+
+    private void normalizeRow(double[][] matrix, int row, int pivot) {
+        double pivotValue = matrix[row][pivot];
+        int colCount = matrix[0].length;
+        for (int col = pivot; col < colCount; col++) {
+            matrix[row][col] /= pivotValue;
+        }
+    }
+
+    private void eliminateColumn(double[][] matrix, int row, int pivot) {
+        int rowCount = matrix.length;
+        int colCount = matrix[0].length;
+        for (int r = 0; r < rowCount; r++) {
+            if (r == row) continue;
+            double factor = matrix[r][pivot];
+            for (int col = pivot; col < colCount; col++) {
+                matrix[r][col] -= factor * matrix[row][col];
+            }
+        }
+    }
+
+    public double[] solve() throws WrongInputException {
+        if (!isSolvable()) {
+            throw new IllegalStateException("The system of equations is not solvable.");
+        }
+
+        double[][] matrix = buildAugmentedMatrix();
+        int rowCount = matrix.length;
+        int colCount = matrix[0].length - 1;
+
+        // Perform row reduction
+        for (int row = 0; row < rowCount; row++) {
+            int pivot = findPivot(matrix, row);
+            if (pivot == -1) {
+                continue;
+            }
+
+            normalizeRow(matrix, row, pivot);
+            eliminateColumn(matrix, row, pivot);
+        }
+
+        boolean hasFreeVariables = rowCount < colCount;
+        for (int i = rowCount - 1; i >= 0; i--) {
+            if (Math.abs(matrix[i][i]) <= 0) {
+                hasFreeVariables = true;
+                break;
+            }
+        }
+
+        if (hasFreeVariables) {
+            throw new IllegalStateException();
+        }
+
+        double[] solution = new double[colCount];
+        for (int i = rowCount - 1; i >= 0; i--) {
+            solution[i] = matrix[i][colCount];
+            for (int j = i + 1; j < colCount; j++) {
+                solution[i] -= matrix[i][j] * solution[j];
+            }
+            solution[i] /= matrix[i][i];
         }
 
         return solution;

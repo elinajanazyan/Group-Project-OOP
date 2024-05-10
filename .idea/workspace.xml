@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5d35e2c-094e-4fac-9b6a-85d9faa9b069" name="Changes" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/UI/EquationInputUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/UI/EquationUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/QuadraticConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/QuadraticConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/SLEconsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/CLI/SLEconsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/Equation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/Equation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/ExponentialEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/ExponentialEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/QuadraticEquation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/QuadraticEquation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/SLE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/Equations/SLE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/UI/EquationInputUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/am/aua/equationSolver/UI/EquationUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/am/aua/equationSolver/UI/EquationUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713014720650</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First commit">
+      <option name="closed" value="true" />
+      <created>1715273199108</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715273199108</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,16 +135,5 @@
     <MESSAGE value="Fist one" />
     <MESSAGE value="First commit" />
     <option name="LAST_COMMIT_MESSAGE" value="First commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/am/aua/equationSolver/Equations/QuadraticEquation.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

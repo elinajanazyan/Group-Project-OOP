@@ -10,11 +10,47 @@ public class QuadraticEquation extends Equation{
         }
 
         String[] parts = equation.split("=");
+        if (parts.length != 2) {
+            throw new WrongInputException("Invalid equation format.");
+        }
+
         String leftSide = parts[0];
-        double rightSide = parts.length > 1 ?  Double.parseDouble(parts[1]) : 0;
+        double rightSide;
+        try {
+            rightSide = Double.parseDouble(parts[1]);
+        } catch (NumberFormatException e) {
+            throw new WrongInputException("Right side of the equation is not a valid number.");
+        }
 
         String[] terms = leftSide.split("(?=[+-])");
+        if (terms.length == 0) {
+            throw new WrongInputException("No terms found in the equation.");
+        }
 
+        boolean hasX2 = false, hasX = false, hasConstant = false;
+        for (String term : terms) {
+            if (term.contains("x^2")) {
+                hasX2 = true;
+                term = term.replace("x^2", "");
+            } else if (term.contains("x")) {
+                hasX = true;
+                term = term.replace("x", "");
+            } else {
+                hasConstant = true;
+            }
+
+            if (!term.isEmpty() && !term.equals("+") && !term.equals("-")) {
+                try {
+                    Double.parseDouble(term);
+                } catch (NumberFormatException e) {
+                    throw new WrongInputException("Invalid format, enter an equation of the form ax^2 + bx + c = k");
+                }
+            }
+        }
+
+        if (!hasX2) {
+            throw new WrongInputException("The equation must contain an x^2 term.");
+        }
 
         for (String term : terms) {
             if (term.contains("x^2")) {
@@ -29,32 +65,53 @@ public class QuadraticEquation extends Equation{
         }
         c -= rightSide;
     }
-    public void solve() {
+    public double[] solve() {
         double discriminant = b * b - 4 * a * c;
+        double[] roots;
 
         if (a == 0) {
-            double root = -c / b;
-            System.out.printf("%.2f", "One real root: ", root);
-        } if (b == 0){
-                if (c < 0){
-                    System.out.println("Two real and distinct roots: " +
-                            Math.sqrt(-c) + " and " + -Math.sqrt(-c));
-                }
-        } else {
-            if (discriminant > 0) {
-                double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-                double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-                System.out.printf("%.2f", "Two real and distinct roots: ", root1, " and ", root2);
-            } else if (discriminant == 0) {
-                double root = -b / (2 * a);
-                System.out.printf("%.2f", "One real root: ", root);
+            if (b != 0) {
+                roots = new double[1];
+                roots[0] = -c / b;
             } else {
-                System.out.println("No real roots.");
+                roots = new double[0];
+            }
+        } else if (b == 0) {
+            if (c < 0) {
+                roots = new double[2];
+                double sqrtValue = Math.sqrt(-c / a);
+                roots[0] = sqrtValue;
+                roots[1] = -sqrtValue;
+            } else if (c == 0) {
+                roots = new double[1];
+                roots[0] = 0;
+            } else {
+                roots = new double[0];
+            }
+        } else {
+            // General case
+            if (discriminant > 0) {
+                roots = new double[2];
+                roots[0] = (-b + Math.sqrt(discriminant)) / (2 * a);
+                roots[1] = (-b - Math.sqrt(discriminant)) / (2 * a);
+            } else if (discriminant == 0) {
+                roots = new double[1];
+                roots[0] = -b / (2 * a);
+            } else {
+                roots = new double[0];
             }
         }
+        return roots;
     }
+
     @Override
     public double[] getCoefficients() {
         return new double[]{a, b, c};
     }
+
+    public boolean isSolvable() {
+        double discriminant = b * b - 4 * a * c;
+        return a != 0 || discriminant >= 0;
+    }
+
 }

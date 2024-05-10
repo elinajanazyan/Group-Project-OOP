@@ -22,14 +22,13 @@ public class SLEconsole {
                 system.addEquation(new LinearEquation(firstEquation));
                 system.addEquation(new LinearEquation(secondEquation));
 
-                double[] solutions = system.solveSystem();
+                double[] solutions = system.solve();
                 System.out.println("Solutions:");
                 System.out.println("x: " + solutions[0]);
                 System.out.println("y: " + solutions[1]);
                 success = true;
             } catch (WrongInputException e) {
                 System.out.println("Invalid input: " + e.getMessage());
-                // Clearing system for new input
                 system = new SLE();
             } catch (Exception e) {
                 System.out.println("An error occurred: " + e.getMessage());

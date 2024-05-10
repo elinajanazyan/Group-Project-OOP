@@ -5,8 +5,13 @@ import am.aua.equationSolver.CLI.ExponentialEquationConsole;
 import am.aua.equationSolver.CLI.LinearConsole;
 import am.aua.equationSolver.CLI.QuadraticConsole;
 import am.aua.equationSolver.CLI.SLEconsole;
+import am.aua.equationSolver.UI.EquationUI;
 
 public class Main {
+    public static void main(String[] args) {
+        EquationUI e = new EquationUI();
+        e.setVisible(true);
+    } /*
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please choose what type of equation to solve: "  + "\n" +
@@ -42,5 +47,5 @@ public class Main {
             }
         }
 
-    }
+    } */
 }

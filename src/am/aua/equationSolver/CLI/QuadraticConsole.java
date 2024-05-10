@@ -6,7 +6,6 @@ public class QuadraticConsole {
 
     public static void Quadratic() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a quadratic equation in the form ax^2 + bx + c = k:");
 
         boolean validInput = false;
         while (!validInput) {
