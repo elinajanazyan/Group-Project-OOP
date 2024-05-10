@@ -148,7 +148,7 @@ public class EquationUI extends JFrame {
                 result.append("y").append(": ").append(solutions[1]).append("\n");
                 JOptionPane.showMessageDialog(null, result.toString());
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "No unique solution or error: " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "No unique solution");
             }
         } else if (eq instanceof ExponentialEquation) {
             ExponentialEquation expEq = (ExponentialEquation) eq;
